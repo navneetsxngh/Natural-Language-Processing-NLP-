@@ -6,3 +6,4 @@ textblob
 nltk
 emoji
 spacy
+scikit-learn
