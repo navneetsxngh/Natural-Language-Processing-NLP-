@@ -8,3 +8,4 @@ emoji
 spacy
 scikit-learn
 gensim
+beautifulsoup4
