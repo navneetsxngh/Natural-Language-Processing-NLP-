@@ -7,3 +7,4 @@ nltk
 emoji
 spacy
 scikit-learn
+gensim
