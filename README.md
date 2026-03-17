@@ -2,7 +2,7 @@
 
 > 🚧 **Work in Progress** — This repository is actively being developed. New notebooks, datasets, and topics will be added as learning progresses. Stay tuned for updates!
 
-A structured, beginner-to-intermediate collection of Jupyter Notebooks covering the core concepts and techniques of **Natural Language Processing (NLP)** using Python. Each notebook is hands-on and progressively builds up knowledge from raw text processing to feature extraction for machine learning.
+A structured, beginner-to-intermediate collection of Jupyter Notebooks covering the core concepts and techniques of **Natural Language Processing (NLP)** using Python. Each notebook is hands-on and progressively builds knowledge — from raw text processing and feature extraction to real-world classification projects.
 
 ---
 
@@ -12,18 +12,31 @@ A structured, beginner-to-intermediate collection of Jupyter Notebooks covering 
 Natural-Language-Processing-NLP-/
 │
 ├── Data/
-│   ├── IMDB Dataset.csv          # Movie reviews dataset for sentiment analysis
-│   ├── train.csv                 # Training dataset
-│   └── nlp_pipeline_notes.pdf   # Reference notes on NLP pipelines
+│   ├── IMDB Dataset.csv            # 50K movie reviews for sentiment analysis
+│   ├── SMSSpamCollection.txt       # Labelled SMS spam/ham messages
+│   ├── all_kindle_review.csv       # Kindle product reviews for sentiment analysis
+│   ├── train.csv                   # General training dataset
+│   └── nlp_pipeline_notes.pdf      # Reference notes on NLP pipelines
 │
-├── tokenization.ipynb            # Word & sentence tokenization techniques
-├── stemming and lemmatization.ipynb  # Stemming & lemmatization methods
-├── Stopwords.ipynb               # Removing stopwords from text
-├── Parts of Speech Tagging.ipynb # POS tagging using NLTK
-├── Text Preprocessing.ipynb      # Full text preprocessing pipeline
-├── Text Representation.ipynb     # Feature extraction (BoW, TF-IDF, Embeddings)
+├── tokenization.ipynb              # Word & sentence tokenization
+├── stemming and lemmatization.ipynb # Stemming & lemmatization methods
+├── Stopwords.ipynb                 # Removing stopwords from text
+├── Parts of Speech Tagging.ipynb   # POS tagging using NLTK
+├── Named Entity Recognition.ipynb  # NER with NLTK
+├── Text Preprocessing.ipynb        # Full text preprocessing pipeline
+├── Text Representation.ipynb       # Conceptual overview of text features
+├── Bag of Words.ipynb              # BoW with CountVectorizer
+├── TF-IDF.ipynb                    # TF-IDF with TfidfVectorizer
+├── N-Grams.ipynb                   # N-gram language models
+├── Word2Vec.ipynb                  # Word embeddings with Gensim
 │
-└── requirements.txt              # Python dependencies
+├── Projects/
+│   ├── Kindle Review Sentiment Analysis.ipynb
+│   ├── Spam Ham Classification Project Using BOW.ipynb
+│   ├── Spam Ham Classification Project Using TF-IDF.ipynb
+│   └── Spam Ham Projects Using Word2vec,AvgWord2vec.ipynb
+│
+└── requirements.txt                # Python dependencies
 ```
 
 ---
@@ -53,24 +66,76 @@ Demonstrates how to remove common, low-information words from text:
 ### 4. 🏷️ Parts of Speech Tagging (`Parts of Speech Tagging.ipynb`)
 Covers grammatical tagging of words in a sentence:
 - POS tagging using `nltk.pos_tag`
-- Named Entity Recognition (NER) with `ne_chunk`
 - Applied on Dr. APJ Abdul Kalam's speech as sample text
 - Using the `averaged_perceptron_tagger` model from NLTK
 
-### 5. 🧹 Text Preprocessing (`Text Preprocessing.ipynb`)
+### 5. 🔍 Named Entity Recognition (`Named Entity Recognition.ipynb`)
+Identifies and classifies named entities (persons, places, organizations) in text:
+- NER using NLTK's `ne_chunk`
+- Extracting persons, GPE, and organizations from sample text
+
+### 6. 🧹 Text Preprocessing (`Text Preprocessing.ipynb`)
 A full preprocessing pipeline applied on the **IMDB Movie Reviews Dataset**:
-- Lowercasing text
-- Removing special characters, HTML tags, URLs
+- Lowercasing, removing special characters, HTML tags, URLs
 - Handling contractions and punctuation
 - Combining tokenization, stopword removal, and stemming
 
-### 6. 🔢 Text Representation (`Text Representation.ipynb`)
-Feature extraction techniques to convert text into numerical vectors:
-- **Bag of Words (BoW)** using `CountVectorizer`
-- **TF-IDF** (Term Frequency–Inverse Document Frequency)
-- **Word Embeddings** (Word2Vec, GloVe conceptual overview)
-- **N-grams** for capturing word sequences
+### 7. 🔢 Text Representation (`Text Representation.ipynb`)
+Conceptual overview of techniques to convert text into numerical vectors:
+- Bag of Words (BoW), TF-IDF, Word Embeddings, and N-grams
 - Why feature extraction matters for ML models (Logistic Regression, SVM, etc.)
+
+### 8. 🛍️ Bag of Words (`Bag of Words.ipynb`)
+Hands-on implementation of the BoW model:
+- `CountVectorizer` from scikit-learn
+- Building and interpreting a document-term matrix
+- Applied on real review data
+
+### 9. 📊 TF-IDF (`TF-IDF.ipynb`)
+In-depth implementation of TF-IDF vectorization:
+- `TfidfVectorizer` from scikit-learn
+- Understanding term frequency vs. inverse document frequency
+- Comparison with BoW
+
+### 10. 🔗 N-Grams (`N-Grams.ipynb`)
+Explores n-gram language models:
+- Unigrams, bigrams, trigrams
+- Generating n-grams with NLTK
+- Applications in text prediction and feature engineering
+
+### 11. 🧬 Word2Vec (`Word2Vec.ipynb`)
+Word embedding models using neural networks:
+- Training Word2Vec using **Gensim**
+- CBOW and Skip-gram model architectures
+- Finding similar words and exploring word relationships
+
+---
+
+## 🗂️ Projects
+
+End-to-end classification projects applying all the NLP techniques learned above.
+
+### 📧 Spam/Ham Classification — BOW (`Spam Ham Classification Project Using BOW.ipynb`)
+Binary text classification using the **SMS Spam Collection** dataset:
+- Preprocessing pipeline (cleaning, tokenization, stopword removal)
+- Feature extraction using **Bag of Words** (CountVectorizer)
+- Model training and evaluation (Naive Bayes, Logistic Regression)
+
+### 📧 Spam/Ham Classification — TF-IDF (`Spam Ham Classification Project Using TF-IDF.ipynb`)
+Same classification task with a different feature extraction strategy:
+- Feature extraction using **TF-IDF**
+- Comparison of model performance vs. BoW approach
+
+### 📧 Spam/Ham Classification — Word2Vec (`Spam Ham Projects Using Word2vec,AvgWord2vec.ipynb`)
+Classification using dense word vector representations:
+- Using pre-trained **Word2Vec** and **Average Word2Vec** features
+- Demonstrates the advantage of semantic word embeddings over sparse features
+
+### 📚 Kindle Review Sentiment Analysis (`Kindle Review Sentiment Analysis.ipynb`)
+End-to-end sentiment classification on the **Kindle Reviews** dataset:
+- Full NLP pipeline from raw text to trained classifier
+- Explores multiple vectorization strategies
+- Multi-model comparison and evaluation
 
 ---
 
@@ -78,7 +143,9 @@ Feature extraction techniques to convert text into numerical vectors:
 
 | File | Description |
 |------|-------------|
-| `IMDB Dataset.csv` | 50,000 movie reviews labeled as positive/negative for sentiment analysis |
+| `IMDB Dataset.csv` | 50,000 movie reviews labelled positive/negative |
+| `SMSSpamCollection.txt` | Labelled SMS messages for spam/ham classification |
+| `all_kindle_review.csv` | Kindle product reviews for sentiment analysis |
 | `train.csv` | Additional training data used in preprocessing exercises |
 | `nlp_pipeline_notes.pdf` | Supplementary reference notes on the NLP pipeline |
 
@@ -88,10 +155,12 @@ Feature extraction techniques to convert text into numerical vectors:
 
 | Library | Purpose |
 |---------|---------|
-| `nltk` | Core NLP tasks — tokenization, stemming, POS tagging, stopwords |
+| `nltk` | Core NLP — tokenization, stemming, POS tagging, NER, stopwords |
 | `spacy` | Advanced NLP processing |
-| `scikit-learn` | Feature extraction (CountVectorizer, TfidfVectorizer) |
+| `scikit-learn` | Feature extraction (`CountVectorizer`, `TfidfVectorizer`) and ML models |
+| `gensim` | Word2Vec and word embedding models |
 | `textblob` | Simple NLP API for text processing |
+| `beautifulsoup4` | HTML parsing and cleaning |
 | `pandas` | Data loading and manipulation |
 | `numpy` | Numerical operations |
 | `matplotlib` & `seaborn` | Visualization |
@@ -140,27 +209,36 @@ Feature extraction techniques to convert text into numerical vectors:
 
 ## 🚀 Recommended Learning Order
 
-For the best learning experience, follow the notebooks in this order:
+For the best learning experience, follow this order:
 
 ```
+Core Concepts
 1. tokenization.ipynb
 2. stemming and lemmatization.ipynb
 3. Stopwords.ipynb
 4. Parts of Speech Tagging.ipynb
-5. Text Preprocessing.ipynb
-6. Text Representation.ipynb
+5. Named Entity Recognition.ipynb
+6. Text Preprocessing.ipynb
+
+Feature Extraction
+7. Text Representation.ipynb        ← conceptual overview
+8. Bag of Words.ipynb
+9. TF-IDF.ipynb
+10. N-Grams.ipynb
+11. Word2Vec.ipynb
+
+Projects (apply everything)
+12. Spam Ham Classification Project Using BOW.ipynb
+13. Spam Ham Classification Project Using TF-IDF.ipynb
+14. Spam Ham Projects Using Word2vec,AvgWord2vec.ipynb
+15. Kindle Review Sentiment Analysis.ipynb
 ```
 
 ---
 
 ## 🗺️ Upcoming Topics
 
-The following topics are planned for future notebooks:
-
-- [ ] Named Entity Recognition (NER)
-- [ ] Text Classification
-- [ ] Sentiment Analysis (end-to-end)
-- [ ] Word Embeddings (Word2Vec, GloVe, FastText)
+- [ ] Text Classification (multi-class)
 - [ ] Sequence Models (RNN, LSTM)
 - [ ] Transformers & BERT
 - [ ] Topic Modelling (LDA)
